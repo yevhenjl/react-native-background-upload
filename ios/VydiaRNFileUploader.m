@@ -162,6 +162,18 @@ RCT_EXPORT_METHOD(startUpload:(NSDictionary *)options resolve:(RCTPromiseResolve
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
         [request setHTTPMethod: method];
 
+        if (options[@"requestTimeoutInterval"]) {
+            [request setTimeoutInterval:[options[@"requestTimeoutInterval"] intValue]];
+        }
+
+        if (options[@"timeoutIntervalForResource"]) {
+            [request setTimeoutInterval:[options[@"timeoutIntervalForResource"] intValue]];
+        }
+
+        if (options[@"timeoutIntervalForRequest"]) {
+            [request setTimeoutInterval:[options[@"timeoutIntervalForRequest"] intValue]];
+        }
+
         [headers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull val, BOOL * _Nonnull stop) {
             if ([val respondsToSelector:@selector(stringValue)]) {
                 val = [val stringValue];

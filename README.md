@@ -182,6 +182,10 @@ Returns a promise with the string ID of the upload.  Will reject if there is a c
 |`onCancelledTitle`|string|Optional|Sets notification cancelled title|`{ onCancelledTitle: "Upload cancelled" }`|
 |`onCancelledMessage`|string|Optional|Sets notification cancelled message|`{ onCancelledMessage: "Video upload was cancelled" }`|
 
+  // Below are options only supported on iOS
+  requestTimeoutInterval: 60, // The request's timeout interval, in seconds
+  timeoutIntervalForResource: 604800, // controls how long (in seconds) to wait for an entire resource to transfer before giving up
+  timeoutIntervalForRequest: 60 // controls how long (in seconds) a task should wait for additional data to arrive before giving up
 
 ### getFileInfo(path)
 
